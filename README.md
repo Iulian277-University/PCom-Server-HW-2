@@ -67,13 +67,13 @@ It also stores some informations about the topics the client is interested in (i
 
 ```c
 typedef struct client {
-	char 	id[ID_CLIENT_LEN];	// ID of the client
-	bool 	connected;			// Client is/isn't connected to the server
-	int 	socket;				// Socket through which the client is connected to the server
+	char 	id[ID_CLIENT_LEN];  // ID of the client
+	bool 	connected;          // Client is/isn't connected to the server
+	int 	socket;	            // Socket through which the client is connected to the server
 
-	int 	num_of_topics;		// Current number of topics at which the client is subscribed
-	int 	max_topics;			// Maximum number of topics at which a client can subscribe 
-	Topic 	**topics;			// List of subscribed topics
+	int 	num_of_topics;      // Current number of topics at which the client is subscribed
+	int 	max_topics;	        // Maximum number of topics at which a client can subscribe 
+	Topic 	**topics;           // List of subscribed topics
 } Client;
 ```
 
