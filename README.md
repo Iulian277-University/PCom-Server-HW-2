@@ -33,12 +33,12 @@ the next two are used for knowing the UDP client which provided this message. Th
 
 ```c
 typedef struct tcp_msg {
-	char 	 size[MAX_DIGITS_TCP_MSG_LEN]; 	// Size of the message
-	char	 ip[IP_LEN];					// `IP_CLIENT_UDP`
-	uint16_t port;							// `PORT_CLIENT_UDP`
+	char 	 size[MAX_DIGITS_TCP_MSG_LEN];  // Size of the message
+	char	 ip[IP_LEN];                    // `IP_CLIENT_UDP`
+	uint16_t port;                          // `PORT_CLIENT_UDP`
 
-	bool 	 from_server;					// Tell if it is an repsonse (err msg) from the server
-	UDP_msg  udp_msg;						// Received msg from the UDP client with IP `ip` and PORT `port`
+	bool 	 from_server;                   // Tell if it is an repsonse (err msg) from the server
+	UDP_msg  udp_msg;                       // Received msg from the UDP client with IP `ip` and PORT `port`
 } TCP_msg;
 ```
 
@@ -49,13 +49,13 @@ It also contains a list of TCP messages for storing packets when a client discon
 
 ```c
 typedef struct topic {
-	char 	name[TOPIC_SIZE];		// Name of the topic
-	uint8_t sf;						// Store-and-forward (0 - disabled | 1 - enabled)
-	bool 	subscribed;				// Tell if the client is still subscribed to this topic
+	char 	name[TOPIC_SIZE];       // Name of the topic
+	uint8_t sf;                     // Store-and-forward (0 - disabled | 1 - enabled)
+	bool 	subscribed;             // Tell if the client is still subscribed to this topic
 
-	int 	num_of_tcps;			// Current number of stored TCP messages
-	int 	max_tcps;				// Maximum number of stored TCP messages
-	TCP_msg **tcps;					// List of TCP messages for storing packets when a client disconnects
+	int 	num_of_tcps;            // Current number of stored TCP messages
+	int 	max_tcps;               // Maximum number of stored TCP messages
+	TCP_msg **tcps;                 // List of TCP messages for storing packets when a client disconnects
 } Topic;
 ```
 
@@ -72,7 +72,7 @@ typedef struct client {
 	int 	socket;	            // Socket through which the client is connected to the server
 
 	int 	num_of_topics;      // Current number of topics at which the client is subscribed
-	int 	max_topics;	        // Maximum number of topics at which a client can subscribe 
+	int 	max_topics;         // Maximum number of topics at which a client can subscribe 
 	Topic 	**topics;           // List of subscribed topics
 } Client;
 ```
